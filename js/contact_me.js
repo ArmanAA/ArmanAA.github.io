@@ -1,6 +1,6 @@
 $(function() {
   $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
-    preventSubmit: false,
+    preventSubmit: true,
     submitError: function($form, event, errors) {
       // additional error messages or events
     },
@@ -19,10 +19,10 @@ $(function() {
           .slice(0, -1)
           .join(" ");
       }
-      $this = $("#sendMessageButton");
-      $this.prop("disabled", false); // Disable submit button until AJAX call is complete to prevent duplicate messages
+      // $this = $("#sendMessageButton");
+      // $this.prop("disabled", false); // Disable submit button until AJAX call is complete to prevent duplicate messages
       $.ajax({
-        url: "../mail/contact_me.php",
+        url: "./mail/contact_me.php",
         type: "POST",
         data: {
           name: name,
